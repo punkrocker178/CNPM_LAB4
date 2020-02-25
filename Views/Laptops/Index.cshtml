@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Lab3_CNPM.Models.Laptop>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2>Laptop List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(lap => lap.ID)</th>
+                <th>@Html.DisplayNameFor(lap => lap.Name)</th>
+                <th>@Html.DisplayNameFor(lap => lap.CPU)</th>
+                <th>@Html.DisplayNameFor(lap => lap.RAM)</th>
+                <th>@Html.DisplayNameFor(lap => lap.Storage)</th>
+                <th>@Html.DisplayNameFor(lap => lap.Price)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var lap in Model)
+                {
+                    <tr>
+                        <td>@lap.ID</td>
+                        <td>@lap.Name</td>
+                        <td>Core @lap.CPU</td>
+                        <td>@lap.RAM GB</td>
+                        <td>@lap.Storage GB</td>
+                        <td>@String.Format("{0:n0}", lap.Price) USD</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { @id = lap.ID }) | @Html.ActionLink("Delete", "Delete", new { @id = lap.ID })
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
