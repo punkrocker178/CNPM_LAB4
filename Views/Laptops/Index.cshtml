@@ -6,6 +6,7 @@
 
 <div>
     <h2>Laptop List</h2>
+    <button class="btn btn-info" onclick="location.href='@Url.Action("Create", "Laptops")'">Create</button>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -30,7 +31,7 @@
                         <td>@lap.Storage GB</td>
                         <td>@String.Format("{0:n0}", lap.Price) USD</td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { @id = lap.ID }) | @Html.ActionLink("Delete", "Delete", new { @id = lap.ID })
+                            @Html.ActionLink("Edit", "Update", new { @id = lap.ID }) | @Html.ActionLink("Delete", "Delete", new { @id = lap.ID })
                         </td>
                     </tr>
                 }

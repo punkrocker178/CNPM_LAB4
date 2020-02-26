@@ -38,6 +38,7 @@ namespace Lab3_CNPM
         {
             try
             {
+                db.Entry(lap).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return true;
             }
@@ -85,6 +86,11 @@ namespace Lab3_CNPM
         {
             return (from lap in db.Laptops
                     select lap).Count();
+        }
+
+        public Laptop GetLaptop(string id)
+        {
+            return db.Laptops.Find(id);
         }
     }
 }

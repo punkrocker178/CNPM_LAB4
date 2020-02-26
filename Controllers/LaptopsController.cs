@@ -26,6 +26,13 @@ namespace Lab3_CNPM.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Create(Laptop model)
+        {
+            dao.AddLaptop(model);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult CreateLaptop()
         {
             if (dao.GetLaptopCount() > 0)
@@ -45,6 +52,39 @@ namespace Lab3_CNPM.Controllers
             dao.AddLaptop(new Laptop("L011", "Macbook Pro 15\"", 2699, "i7", 32, 1024));
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            dao.DeleteLaptop(dao.GetLaptop(id));
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Update(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Laptop laptop = dao.GetLaptop(id);
+            return View("Update", laptop);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Laptop laptop)
+        {
+            if (ModelState.IsValid)
+            {
+                dao.UpdateLaptop(laptop);
+                return RedirectToAction("Index");
+            }
+            return View(laptop);
         }
 
     }

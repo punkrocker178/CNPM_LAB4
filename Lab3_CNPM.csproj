@@ -175,6 +175,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Laptops\Index.cshtml" />
     <Content Include="Views\Laptops\Create.cshtml" />
+    <Content Include="Views\Laptops\Update.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

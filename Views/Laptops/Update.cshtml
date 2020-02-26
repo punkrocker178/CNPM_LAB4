@@ -1,15 +1,11 @@
 ﻿@model Lab3_CNPM.Models.Laptop
 @{
-    ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Create new Laptop</h1>
-
-@using (Html.BeginForm("Create", "Laptops", FormMethod.Post))
+<h2>Edit</h2>
+@using (Html.BeginForm("Update", "Laptops", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-
     <div class="form-horizontal">
         <h4>Laptop</h4>
         <hr />
@@ -64,7 +60,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Update" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -73,3 +69,4 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
